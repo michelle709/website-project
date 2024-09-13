@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed- Your Health, Your Wealth</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-left {
+            flex: 1;
+        }
+
+        .navbar-left .logo {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar-center {
+            flex: 2;
+            text-align: center;
+        }
+
+        .navbar-right {
+            flex: 1;
+            text-align: right;
+        }
+
+        .navbar-right button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #hero {
+            background-color: #007bff;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative; 
+            overflow: hidden; 
+        }
+
+    .hero-image {
+            background-image: url('web.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 500px; 
+        }
+        .hero-image::before {
+            content: '';
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(72, 18, 122, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 50px 0;
+        }
+
+        .service-grid, .doctor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service, .doctor {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+
+        .close-modal-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal-btn:hover, .close-modal-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Additional styles for "About Us" section */
+        #about {
+            background-color: #fff;
+            color: #333;
+            padding: 50px 0;
+        }
+
+        #about .container {
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: justify;
+            /* Ensure the text doesn't break in awkward places */
+            word-wrap: break-word;
+        }
+
+        /* Video section styles */
+        #about .video-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #about .video-container iframe {
+            max-width: 100%;
+            height: auto;
+            border: none;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            font-size: 1.2em;
+            color: #888;
+        }
+        .corner-image {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            object-fit: cover; 
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <h1><a href="#" class="logo"><strong>Tele</strong>Med</a></h1>
+                </div>
+                <div class="navbar-center">
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <li><button id="loginBtn">Log In</button></li>
+                    <li><button id="signupBtn">Sign Up</button></li>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-image">
+            <!-- Image tag removed -->
+        </div> <!-- Hero image background -->
+        <div class="hero-content">
+            <h2>Your Health, Your Wealth</h2>
+            <p>Access quality medical care from anywhere, anytime.</p>
+            <button onclick="scrollToSection('about')">Get Started</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About TeleMed</h2>
+            <div class="stats">
+                <div class="stat">
+                    <h3>95%</h3>
+                    <p>Patient Recovery</p>
+                </div>
+                <div class="stat">
+                    <h3>1,500+</h3>
+                    <p>Qualified Doctors</p>
+                </div>
+                <div class="stat">
+                    <h3>3,000+</h3>
+                    <p>Satisfied Patients</p>
+                </div>
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Secure Data</p>
+                </div>
+            </div>
+            <p>We are a leading telemedicine platform dedicated to providing convenient and accessible healthcare solutions.</p>
+            <p>MediLop bridges the gap by offering a platform where patients can connect with specialists from the comfort of their homes. Whether you need a routine consultation or a specialist's opinion, MediLop is here to make healthcare more accessible.</p>
+            <p>With rising healthcare costs, our platform also offers a cost-effective solution without compromising on quality.</p>
+            <!-- Video section -->
+            <div class="video-container">
+                <h3>Learn More About Us</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Best Services</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <h3>All Specialties</h3>
+                    <p>Find doctors across all medical specialties.</p>
+                </div>
+                <div class="service">
+                    <h3>Private & Secure</h3>
+                    <p>Your health information is kept confidential.</p>
+                </div>
+                <div class="service">
+                    <h3>Millions of Customers</h3>
+                    <p>Join thousands of satisfied patients.</p>
+                </div>
+                <div class="service">
+                    <h3>Chatbot Support</h3>
+                    <p>Get quick answers to your questions.</p>
+                    <button class="open-modal-btn">Open Chat</button>
+                </div>
+                <div class="service">
+                    <h3>Baby Health</h3>
+                    <p>Expert care for your little ones.</p>
+                </div>
+                <div class="service">
+                    <h3>Stomach</h3>
+                    <p>Consult a specialist for digestive health.</p>
+                </div>
+                <div class="service">
+                    <h3>Psychology</h3>
+                    <p>Access mental health support.</p>
+                </div>
+                <div class="service">
+                    <h3>Urology</h3>
+                    <p>Care for your urinary system.</p>
+                </div>
+                <div class="service">
+                    <h3>Dietitians</h3>
+                    <p>Get personalized nutrition advice.</p>
+                </div>
+                <div class="service">
+                    <h3>Infectious Disease</h3>
+                    <p>Consult for infectious disease concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors">
+        <div class="container">
+            <h2>Our Best Doctors</h2>
+            <div class="doctor-grid">
+                <div class="doctor">
+                    <img src="jane.jpg" alt="Doctor 1" width="100px" height="100px">
+                    <h3>Dr. Jane Smith, MD</h3>
+                    <p>Cardiologist</p>
+                </div>
+                <div class="doctor">
+                    <img src="john.jpg" alt="Doctor 2" width="100px" height="100px">
+                    <h3>Dr. John Doe, MD</h3>
+                    <p>Pediatrician</p>
+                </div>
+                <div class="doctor">
+                    <img src="micheal.jpg" alt="Doctor 3" width="100px" height="100px">
+                    <h3>Dr. Michael, Ph.D.</h3>
+                    <p>Neurologist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <div class="error" id="messageError"></div>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 TeleMed. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for Chat -->
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Chat with Us</h2>
+            <p>Feel free to share your concerns or upload photos to show your symptoms.</p>
+            <form id="chatForm">
+                <div class="form-group">
+                    <label for="chatMessage">Message</label>
+                    <textarea id="chatMessage" name="chatMessage" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="chatFile">Upload Photo</label>
+                    <input type="file" id="chatFile" name="chatFile">
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Sign Up -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input type="text" id="signupName" name="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Log In -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Log In</h2>
+            <form>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+    document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+}
+
+        // Modal functionality
+        var chatModal = document.getElementById("chatModal");
+        var signupModal = document.getElementById("signupModal");
+        var loginModal = document.getElementById("loginModal");
+        var openModalBtns = document.querySelectorAll(".open-modal-btn");
+        var closeModalBtns = document.querySelectorAll(".close-modal-btn");
+
+        document.getElementById("signupBtn").onclick = function() {
+            signupModal.style.display = "block";
+        }
+
+        document.getElementById("loginBtn").onclick = function() {
+            loginModal.style.display = "block";
+        }
+
+        openModalBtns.forEach(btn => {
+            btn.onclick = function() {
+                chatModal.style.display = "block";
+            }
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.onclick = function() {
+                btn.closest('.modal').style.display = "none";
+            }
+        });
+
+        window.onclick = function(event) {
+            if (event.target == chatModal || event.target == signupModal || event.target == loginModal) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
