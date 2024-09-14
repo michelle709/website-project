@@ -97,7 +97,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            height: 500px;
+            height: 500px; 
         }
         .hero-image::before {
             content: '';
@@ -246,28 +246,20 @@
         .stats {
             display: flex;
             justify-content: space-around;
-            margin: 2rem 0;
-            backgroud: #f4f4f4;
-            padding: 2rem 0;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .stat-box {
-            display: flex;
+        .stat {
             text-align: center;
-            flex-basis:20%;
         }
 
-        .stat-box p: first-child{
-            font-size: 36px;
-            color : #f4f4f4;
-        }
-          .stat-box p: last-child{
-            font-size: 16px;
-            color : #f4f4f4;
+        .stat h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
         }
 
-
-        .stat-box {
+        .stat p {
             font-size: 1.2em;
             color: #888;
         }
@@ -356,6 +348,7 @@
 
     <section id="hero">
         <div class="hero-image">
+            <!-- Image tag removed -->
         </div> <!-- Hero image background -->
         <div class="hero-content">
             <h2>Your Health, Your Wealth</h2>
@@ -364,27 +357,29 @@
         </div>
     </section>
 
-    <section class="stats">
-        <div class="container>
-            <div class="stat-box">
-                    <p>95%</p>
+    <section id="about">
+        <div class="container">
+            <h2>About TeleMed</h2>
+            <div class="stats">
+                <div class="stat">
+                    <h3>95%</h3>
                     <p>Patient Recovery</p>
                 </div>
-                <div class="stat-box">
-                    <p>1,500+</p>
+                <div class="stat">
+                    <h3>1,500+</h3>
                     <p>Qualified Doctors</p>
                 </div>
-                <div class="stat-box">
-                    <p>3,000+</p>
+                <div class="stat">
+                    <h3>3,000+</h3>
                     <p>Satisfied Patients</p>
                 </div>
-                <div class="stat-box">
-                    <pp>100%</p>
+                <div class="stat">
+                    <h3>100%</h3>
                     <p>Secure Data</p>
                 </div>
             </div>
             <p>We are a leading telemedicine platform dedicated to providing convenient and accessible healthcare solutions.</p>
-            <p>TeleMed bridges the gap by offering a platform where patients can connect with specialists from the comfort of their homes. Whether you need a routine consultation or a specialist's opinion, TeleMed is here to make healthcare more accessible.</p>
+            <p>MediLop bridges the gap by offering a platform where patients can connect with specialists from the comfort of their homes. Whether you need a routine consultation or a specialist's opinion, MediLop is here to make healthcare more accessible.</p>
             <p>With rising healthcare costs, our platform also offers a cost-effective solution without compromising on quality.</p>
             <!-- Video section -->
             <div class="video-container">
@@ -461,7 +456,7 @@
                 <div class="doctor">
                     <img src="micheal.jpg" alt="Doctor 3" width="100px" height="100px">
                     <h3>Dr. Michael, Ph.D.</h3>
-                    <p>Psychologist</p>
+                    <p>Neurologist</p>
                 </div>
             </div>
         </div>
