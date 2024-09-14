@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeleMed- Your Health, Your Wealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -62,6 +63,19 @@
             color: #007bff;
             font-size: 1.5em;
             font-weight: bold;
+            display: flex;
+        }
+        .navbar-left .logo .plus-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5em;
+            height: 2.5em; 
+            border-radius: 50%; 
+            background-color: #007bff; 
+            color: white; 
+            font-size: 15px; 
+            margin-right: 10px; 
         }
 
         .navbar-center {
@@ -82,36 +96,57 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         #hero {
+            display: flex;
             background-color: #007bff;
             color: #fff;
             padding: 100px 0;
             text-align: center;
-            position: relative; 
+            position: center; 
             overflow: hidden; 
+            justify-content: space-between;
         }
 
     .hero-image {
             background-image: url('web.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: right;
             position: relative;
-            height: 500px; 
+            background-position-x: right;
+            height: 550px; 
+            flex: 1;
         }
-        .hero-image::before {
-            content: '';
-            position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(72, 18, 122, 0.5);
-        }
+        
         .hero-content {
             position: relative;
-            z-index: 1;
+            flex: 1;
+            text-align: left;
+            padding: 0 20px;
         }
+        .hero-content h2 {
+            font-size: 2.5em;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .telemed {
+            background-color:lightblue;
+            color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .telemed p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
 
         button {
             background-color: #007bff;
@@ -252,26 +287,46 @@
             border: none;
         }
 
-        .stats {
+        /* Stat Section */
+        .stats-container {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
+            justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0 auto;
+            padding: 50px 0;
+            text-align: center;
+            background-color: #eaf9e4;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .stat {
-            text-align: center;
+            flex: 1;
+            margin: 20px;
         }
 
         .stat h3 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 5px;
+            color: #007bff;
         }
 
         .stat p {
             font-size: 1.2em;
             color: #888;
         }
+
+        /* Smooth Animation */
+        @keyframes count {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .stat h3 {
+            animation: count 1.5s ease-in-out infinite;
+        }
+
+
         .corner-image {
             position: absolute;
             width: 100px;
@@ -303,7 +358,7 @@
         flex-direction: column;
     }
 
-    .stat {
+    .stats {
         margin-bottom: 20px;
     }
 
@@ -330,6 +385,23 @@
         font-size: 0.9em;
     }
 }
+.cta-buttons {
+          margin-top: 20px;
+        }
+        
+.cta-buttons {
+          margin-top: 20px;
+        }
+        
+        .cta-buttons .book-now, .cta-buttons .play-video {
+          padding: 10px 20px;
+          border: none;
+          background: black;
+          color: white;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+        
     </style>
 </head>
 <body>
@@ -337,7 +409,12 @@
         <div class="container">
             <nav class="navbar">
                 <div class="navbar-left">
-                    <h1><a href="#" class="logo"><strong>Tele</strong>Med</a></h1>
+                    <h1>
+                        <a href="#" class="logo">
+                            <span class="plus-icon"><i class="fas fa-plus"></i></span> 
+                            <strong>Tele</strong>Med
+                        </a>
+                    </h1>
                 </div>
                 <div class="navbar-center">
                     <ul>
@@ -362,7 +439,21 @@
         <div class="hero-content">
             <h2>Your Health, Your Wealth</h2>
             <p>Access quality medical care from anywhere, anytime.</p>
-            <button onclick="scrollToSection('about')">Get Started</button>
+            <section class="telemed">
+            <p>We are a leading telemedicine platform dedicated to providing convenient and accessible healthcare solutions.</p>
+            <p>TeleMed bridges the gap by offering a platform where patients can connect with specialists from the comfort of their homes.
+            <p>Whether you need a routine consultation or a specialist's opinion, TeleMed is here to make healthcare more accessible.</p>
+            <p>With rising healthcare costs, our platform also offers a cost-effective solution without compromising on quality.</p>
+            </section>
+            <div class="hero-content">
+            <div class="container">
+                <button onclick="scrollToSection('signupBtn')">Sign Up</button>
+            </div>
+            <div class="cta-buttons"></div>
+                <button class="book-now">Book Now</button>
+                <button class="play-video">Play Video</button>
+            </div>
+            </div>
         </div>
     </section>
 
@@ -388,18 +479,6 @@
             </div>
         </div>
     </section>
-            <p>We are a leading telemedicine platform dedicated to providing convenient and accessible healthcare solutions.</p>
-            <p>MediLop bridges the gap by offering a platform where patients can connect with specialists from the comfort of their homes. Whether you need a routine consultation or a specialist's opinion, MediLop is here to make healthcare more accessible.</p>
-            <p>With rising healthcare costs, our platform also offers a cost-effective solution without compromising on quality.</p>
-            <!-- Video section -->
-            <div class="video-container">
-                <h3>Learn More About Us</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-        </div>
-    </section>
-
     <section id="services">
         <div class="container">
             <h2>Our Best Services</h2>
@@ -570,6 +649,39 @@
     </div>
 
     <script>
+         // Function to animate the counter
+         const counters = document.querySelectorAll('.counter');
+        const speed = 200; // speed of the count-up
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+
+                // Calculate the increment
+                const increment = target / speed;
+
+                // If the current count is less than the target
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 30); // update every 30ms
+                } else {
+                    counter.innerText = target; // Finish with the target value
+                }
+            };
+
+            // Trigger count when the section comes into view
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCount();
+                        observer.unobserve(counter); // Stop observing once animation starts
+                    }
+                });
+            });
+
+            observer.observe(counter); // Start observing the counter element
+        });
         // Smooth scrolling function
         function scrollToSection(sectionId) {
     document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
