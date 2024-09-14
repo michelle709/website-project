@@ -66,17 +66,17 @@
             display: flex;
         }
         .navbar-left .logo .plus-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5em;
-            height: 2.5em; 
-            border-radius: 50%; 
-            background-color: #007bff; 
-            color: white; 
-            font-size: 15px; 
-            margin-right: 10px; 
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5em;
+        height: 2.5em; 
+        border-radius: 50%; 
+        background-color: #007bff; 
+        color: white; 
+        font-size: 15px; 
+        margin-right: 10px; 
+    }
 
         .navbar-center {
             flex: 2;
@@ -684,7 +684,7 @@
         });
         // Smooth scrolling function
         function scrollToSection(sectionId) {
-    document.querySelector(#${sectionId}).scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
 }
 
         // Modal functionality
